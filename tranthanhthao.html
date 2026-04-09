@@ -21,44 +21,44 @@
             while (!isValid) {
                 password = prompt("Vui lòng nhập mật khẩu của bạn:");
 
-                // Nếu người dùng nhấn Cancel
+                
                 if (password === null) return; 
 
                 let errors = [];
 
-                // 1. Kiểm tra độ dài
+                
                 if (password.length < 8) {
                     errors.push("- Ít nhất 8 ký tự.");
                 }
 
-                // 2. Kiểm tra chữ hoa
+                
                 if (!/[A-Z]/.test(password)) {
                     errors.push("- Chứa ít nhất một chữ cái viết hoa (A-Z).");
                 }
 
-                // 3. Kiểm tra chữ thường
+              
                 if (!/[a-z]/.test(password)) {
                     errors.push("- Chứa ít nhất một chữ cái viết thường (a-z).");
                 }
 
-                // 4. Kiểm tra chữ số
+                
                 if (!/[0-9]/.test(password)) {
                     errors.push("- Chứa ít nhất một chữ số (0-9).");
                 }
 
-                // 5. Kiểm tra ký tự đặc biệt
+                
                 if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
                     errors.push("- Chứa ít nhất một ký tự đặc biệt (@, #, $, %...).");
                 }
 
-                // Kiểm tra kết quả
+               
                 if (errors.length > 0) {
                     alert("Mật khẩu không hợp lệ:\n" + errors.join("\n") + "\nVui lòng nhập lại!");
                 } else {
                     isValid = true;
                     let strength = "";
 
-                    // Đánh giá độ mạnh
+                   
                     if (password.length === 8) {
                         strength = "Yếu";
                     } else if (password.length < 12) {
