@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập Mật khẩu - HVNH</title>
+</head>
+<body>
+
+    <h2>Chương trình Kiểm tra Mật khẩu</h2>
+    
+    <button onclick="batDauNhap()">Nhấn để nhập mật khẩu</button>
+
+    <script>
+        function batDauNhap() {
+            let pass = prompt("Nhập mật khẩu bạn muốn chọn:");
+            
+            // Nếu nhấn Cancel thì dừng
+            if (pass === null) return;
+
+            let errors = [];
+
+            // Kiểm tra các tiêu chí
+            if (pass.length < 8) errors.push("- Ít nhất 8 ký tự.");
+            if (!/[A-Z]/.test(pass)) errors.push("- Cần chữ viết hoa.");
+            if (!/[a-z]/.test(pass)) errors.push("- Cần chữ viết thường.");
+            if (!/[0-9]/.test(pass)) errors.push("- Cần ít nhất một chữ số.");
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(pass)) errors.push("- Cần ký tự đặc biệt.");
+
+            // Xử lý kết quả
+            if (errors.length > 0) {
+                alert("Mật khẩu không hợp lệ:\n" + errors.join("\n"));
+            } else {
+                // Tính độ mạnh
+                let strength = "";
+                if (pass.length === 8) {
+                    strength = "Yếu";
+                } else if (pass.length < 12) {
+                    strength = "Trung bình";
+                } else {
+                    strength = "Mạnh";
+                }
+
+                alert("Mật khẩu hợp lệ!\nĐộ mạnh: " + strength);
+            }
+        }
+    </script>
+
+</body>
+</html>
